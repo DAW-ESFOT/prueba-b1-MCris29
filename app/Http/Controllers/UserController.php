@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Genre;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -33,5 +34,10 @@ class UserController extends Controller
     {
         $user->delete();
         return response()->json(null, 204);
+    }
+    public function user_genres(User $user)
+    {
+        $user = $user->genres()->get();
+        return $user;
     }
 }
