@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Genre;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -18,12 +19,23 @@ class UsersTableSeeder extends Seeder
         User::truncate();
         $faker = \Faker\Factory::create();
 
-        for ($i = 0; $i < 30; $i++) {
-            User::create([
+        for ($i = 0; $i < 10; $i++) {
+            $user = User::create([
                 'name' => $faker->firstName,
                 'lastname' => $faker->lastName,
                 'document' => $faker->sentence
             ]);
+            $user->genres()->saveMany(
+                $faker->randomElements(
+                    array(
+                        Genre::find(1),
+                        Genre::find(2),
+                        Genre::find(3),
+                        Genre::find(4),
+                        Genre::find(5)
+                    ), $faker->numberBetween(1, 5), false
+                )
+            );
         }
     }
 }

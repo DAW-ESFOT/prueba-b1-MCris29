@@ -15,4 +15,8 @@ class Movie extends Model
         'year',
         'available'
     ];
+    public function genre()
+    {
+        return $this->belongsTo('App\Models\Genre');
+    }
 }

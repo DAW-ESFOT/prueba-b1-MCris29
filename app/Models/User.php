@@ -22,6 +22,11 @@ class User extends Authenticatable
         'document',
     ];
 
+    public function genres()
+    {
+        return $this->belongsToMany('App\Models\Genre')->withTimestamps();
+    }
+
     /**
      * The attributes that should be hidden for arrays.
      *
