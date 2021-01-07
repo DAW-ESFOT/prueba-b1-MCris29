@@ -41,3 +41,4 @@ Route::put('users/{user}', 'App\Http\Controllers\UserController@update');
 Route::delete('users/{user}', 'App\Http\Controllers\UserController@delete');
 
 Route::get('genres/{genre}/movies', 'App\Http\Controllers\GenreController@genre_movies');
+Route::get('users/{user}/genres', 'App\Http\Controllers\UserController@user_genres');
