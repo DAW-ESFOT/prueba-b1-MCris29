@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Genre;
+use App\Models\Movie;
 use Illuminate\Http\Request;
 
 class GenreController extends Controller
@@ -34,4 +35,11 @@ class GenreController extends Controller
         $genre->delete();
         return response()->json(null, 204);
     }
+
+    public function genre_movies(Genre $genre, Movie $movie)
+    {
+        $genre = $movie->where('genre_id', $genre->id)->get();
+        return $genre;
+    }
+
 }
