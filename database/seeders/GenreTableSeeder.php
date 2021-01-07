@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Genre;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class GenreTableSeeder extends Seeder
@@ -18,10 +19,11 @@ class GenreTableSeeder extends Seeder
         Genre::truncate();
         $faker = \Faker\Factory::create();
 
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 5; $i++) {
             Genre::create([
                 'name' => $faker->word,
             ]);
         }
+
     }
 }
